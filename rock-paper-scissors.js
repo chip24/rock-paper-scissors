@@ -5,7 +5,10 @@ function getComputerChoice (min, max) {
 var computerSelection = getComputerChoice(1,3);
 console.log(computerSelection);
 
-var playerSelection = prompt("Type rock, scissors, or paper.");
+var playerChoice = prompt("Type rock, scissors, or paper.");
+console.log(playerChoice);
+var playerSelection = playerChoice.toLowerCase();
+
 console.log(playerSelection);
 
 function playRound(playerSelection, computerSelection){
@@ -30,18 +33,20 @@ function playRound(playerSelection, computerSelection){
     }else if (playerSelection === "scissors" && computerSelection === 3){
         return("It's a tie. Scissors equals scissors.");
     }
+
+
 }
 
-//alert(playRound(playerSelection, computerSelection));//
+alert(playRound(playerSelection, computerSelection));
 
-function game(){
-    for (let i = 0; i < 5; i++) {
-        playRound(playerSelection, computerSelection);
+//function game() {
+    //for (let i = 0; i < 5; i++) {
+        //playRound(i);
         
-    }
-}
+    //}
+//}
 
-game()
+//game()
 
 
 
