@@ -1,6 +1,8 @@
+let myScore = 0;
+
 function game(){
     let gameResult = '';
-    let myScore = 0;
+    //let myScore = 0;
     let playerChoice = prompt("Type rock, scissors, or paper.");
     console.log(playerChoice);
     let playerSelection = playerChoice.toLowerCase();
@@ -8,23 +10,18 @@ function game(){
     let computerSelection = getComputerChoice(1,3);
     console.log(computerSelection);
 
-    let myResult = playRound(playerSelection, computerSelection)
+    let myResult = playRound(playerSelection, computerSelection) 
         if (myResult == "It's a tie."){
-            myScore +-0;
-        }if (myResult == "You lose!"){
-            myScore -+1;
-        }if (myResult == "You win!"){
-            myScore =+1;
-        }if (myScore > 0) {
-            gameResult = "You win the game!"
-        }if (myScore < 0){
-            gameResult = "You lose the game."
+            myScore +=0;
+        }else if (myResult == "You lose!"){
+            myScore -=1;
+        }else if (myResult == "You win!"){
+            myScore +=1;
         }
-        if (myScore == 0) {
-            gameResult = "It's a tie."
-        }
-        console.log(gameResult);
-        return gameResult;
+    
+        console.log(myScore + " is my running total");
+    
+    
 
 
     };
@@ -64,7 +61,23 @@ function getComputerChoice (min, max) {
 
 
 
-for (let i = 0; i <5; i++) {
-    console.log("Round # " + i);
+for (let i = 1; i <6; i++) {
+    console.log("Round # " + i );
     game()
 }
+
+function Score() {
+if (myScore > 0) {
+    gameResult = "You win the game!"
+}else if (myScore < 0){
+    gameResult = "You lose the game."
+}
+if (myScore == 0) {
+    gameResult = "It's a tie game."
+}
+console.log(myScore);
+console.log(gameResult);
+return gameResult;
+}
+
+Score()
