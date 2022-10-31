@@ -10,42 +10,9 @@ const scissorsbtn = document.querySelector('#scissorsButton');
 
 const outcomeDiv = document.querySelector('#outcome');
 const content = document.createElement('div');
-//const scoreBox = document.querySelector('#scoreDisplay');
-//scores.classList.add('scores');
-
 content.classList.add('content');
-
-content.textContent = 'Hello, World!'
+content.textContent = "Let's Play Rock Paper Scissors!";
 outcomeDiv.appendChild(content);
-//scoreBox.classList.add('scores');
-//scoreBox.appendChild(scores);
-
-function game(){
-    let gameResult = '';
-    //let playerSelection = '';
-    
-    let myScore = '';
-    //let playerChoice = prompt("Type rock, scissors, or paper.");
-    //console.log(playerChoice);
-    //let playerSelection = playerChoice.toLowerCase();
-    //console.log(playerSelection);
-    let playerSelection = '';
-    
-    let computerSelection = getComputerChoice(1,3);
-    //console.log(computerSelection);
-
-    let myResult = playRound(playerSelection, computerSelection) 
-        if (myResult == "It's a tie."){
-            myScore +=0;
-        }else if (myResult == "You lose!"){
-            myScore -=1;
-        }else if (myResult == "You win!"){
-            myScore +=1;
-        }
-    
-        console.log(myScore + " is my running total");
-
-    };
 
 rockbtn.addEventListener('click', () => {
     const computerSelection = getComputerChoice(1,3);
@@ -67,6 +34,7 @@ paperbtn.addEventListener('click', () => {
     console.log(computerSelection);
     console.log(playerSelection);
     console.log(result);
+    outcomeDiv.textContent = `Outcome: ${result}`;
     runningTotal(result);
     gameOver(myScore, computerScore);
 });
@@ -78,6 +46,7 @@ scissorsbtn.addEventListener('click', () => {
     console.log(computerSelection);
     console.log(playerSelection);
     console.log(result);
+    outcomeDiv.textContent = `Outcome: ${result}`;
     runningTotal(result);
     gameOver(myScore, computerScore);
 });
@@ -150,19 +119,4 @@ function gameOver(myScore, computerScore){
         scoreBox.appendChild(finalScore);
     }
 }
-
-function Score() {
-if (myScore > 0) {
-    gameResult = "You win the game!"
-}else if (myScore < 0){
-    gameResult = "You lose the game."
-}
-if (myScore == 0) {
-    gameResult = "It's a tie game."
-}
-console.log(myScore);
-console.log(gameResult);
-return gameResult;
-}
-
 
